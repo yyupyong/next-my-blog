@@ -54,6 +54,7 @@ export default function Post(props: PostProps) {
     </div>
   );
 }
+
 interface PostProps {
   tag: string;
   date: string;

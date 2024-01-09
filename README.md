@@ -92,3 +92,4 @@ yarn dev
 - Adding dark mode theme support
 - SEO support 
 
+# next-my-blog

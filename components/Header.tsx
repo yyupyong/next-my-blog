@@ -1,13 +1,11 @@
 import Nav from "./Nav";
 
 function Header(props: HeaderComponent) {
-
   return (
-    <header className="w-full flex flex-col py-5 bg-[rgba(35,46,82,1)]">
-
+    <header className="flex w-full flex-col bg-[rgba(35,46,82,1)] py-5">
       <Nav />
 
-      <div className="container flex flex-col mx-auto my-32 p-10">
+      {/* <div className="container flex flex-col mx-auto my-32 p-10">
 
 
         {
@@ -25,14 +23,14 @@ function Header(props: HeaderComponent) {
 
 
 
-      </div>
+      </div> */}
     </header>
   );
 }
 
 Header.defaultProps = {
   tag: "👋 Rajdeep Singh",
-  title: "Start your front-end developer career journey with me."
+  title: "Start your front-end developer career journey with me.",
 };
 
 interface HeaderComponent {

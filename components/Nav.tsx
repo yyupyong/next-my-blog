@@ -11,7 +11,7 @@ function Nav() {
   return (
     <div className="container mx-auto my-4 flex  flex-col items-center  justify-center  py-3  px-0 sm:flex-col sm:justify-center sm:px-0 md:flex-row md:justify-between md:px-3 lg:flex-row lg:justify-between lg:px-3 xl:flex-row xl:justify-between xl:px-3 2xl:flex-row 2xl:justify-between 2xl:px-3">
       <a href="/" className="text-center text-2xl text-white">
-        Yuuのブログ
+        Kim yupyong
       </a>
 
       <nav className="md:justify-right mt-5 inline-flex items-start justify-center gap-3 text-left font-medium text-white sm:mt-5 sm:justify-center sm:gap-5 md:mt-0 md:gap-10 lg:mt-0 lg:gap-10  xl:mt-0 xl:gap-10 2xl:mt-0 2xl:gap-10">

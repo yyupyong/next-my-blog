@@ -15,9 +15,9 @@ export default function Post(props: PostProps) {
             <div
               className={`flex items-center justify-center gap-2.5 rounded-l-md bg-[rgba(235,242,254,1)] px-3 pt-2 pb-2.5 font-semibold transition-all`}
             >
-              {/* <p className="m-0 text-[13px] uppercase leading-[1.2]">
+              <p className="m-0 text-[13px] uppercase leading-[1.2]">
                 {props.tag}
-              </p> */}
+              </p>
             </div>
 
             <div className="flex items-center justify-center gap-2.5 rounded-r-md bg-white px-3 pt-2 pb-2.5 font-medium ">
@@ -57,6 +57,7 @@ export default function Post(props: PostProps) {
 
 interface PostProps {
   date: string;
+  tag: string;
   title: string;
   description: string;
   image: string;

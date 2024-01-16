@@ -46,26 +46,26 @@ function Nav() {
           Think
         </Link>
         <Link
-          href={"/page/music"}
+          href={"/page/About me"}
           className="m-0 text-xs sm:text-lg md:text-lg lg:text-lg xl:text-lg 2xl:text-lg"
         >
-          Music
+          About Me
         </Link>
       </nav>
       <div className="hidden flex-row items-center justify-between sm:hidden md:hidden lg:flex xl:flex 2xl:flex">
-        <Link href="#" target="_blank">
+        <Link href="https://twitter.com/yuu_7797" target="_blank">
           {" "}
           <FaTwitter className="mx-3 text-white" />{" "}
         </Link>
-        <Link href="#" target="_blank">
+        {/* <Link href="#" target="_blank">
           {" "}
           <FaInstagram className="mx-3 text-white" />{" "}
-        </Link>
-        <Link href="#" target="_blank">
+        </Link> */}
+        {/* TODO:ここにwantedlly youtrustのリンクを貼る */}
+        <Link href="" target="_blank">
           {" "}
           <FaLinkedinIn className="mx-3 text-white" />{" "}
         </Link>
-
         <button
           type="button"
           className="mx-auto inline-flex w-[150px] flex-col items-center justify-center gap-2.5 rounded-lg bg-[#dce8fc] px-5 py-2.5 text-center font-medium text-[rgba(35,46,82,1)]"

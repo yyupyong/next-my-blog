@@ -5,8 +5,9 @@ import Pagination from "../components/Pagination";
 import { posts as data } from "../data/post";
 import dayjs from "dayjs";
 import { client } from "../libs/client";
+import { log } from "console";
 
-export default function Home({ posts }: homePageProps) {
+export default function Home({ data }: any) {
   return (
     <>
       <Header />
@@ -16,7 +17,9 @@ export default function Home({ posts }: homePageProps) {
           All posts
         </p>
 
-        {posts?.map((item: itemProps) => {
+        <div>data</div>
+
+        {data?.map((item: itemProps) => {
           let GetDate = dayjs(item.date).format("DD-MMM , YYYY");
 
           return (
@@ -39,11 +42,26 @@ export default function Home({ posts }: homePageProps) {
   );
 }
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+//   return {
+//     props: { posts: data },
+//   };
+// }
+
+export const getStaticProps = async () => {
+  const res = await client.get({
+    endpoint: "blogs",
+  });
+  const posts = res.contents;
+
+  console.log(data);
+
   return {
-    props: { posts: data },
+    props: {
+      posts,
+    },
   };
-}
+};
 
 interface homePageProps {
   posts: {

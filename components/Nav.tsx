@@ -62,7 +62,10 @@ function Nav() {
           <FaInstagram className="mx-3 text-white" />{" "}
         </Link> */}
         {/* TODO:ここにwantedlly youtrustのリンクを貼る */}
-        <Link href="" target="_blank">
+        <Link
+          href="https://www.linkedin.com/in/yupyong-kim-38b876263/"
+          target="_blank"
+        >
           {" "}
           <FaLinkedinIn className="mx-3 text-white" />{" "}
         </Link>

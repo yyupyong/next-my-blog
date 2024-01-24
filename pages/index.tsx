@@ -23,10 +23,10 @@ export default function Home({ posts }: { posts: itemProps[] }) {
           return (
             <Post
               key={item.id}
-              // tag={item.?.name} // `category`が存在する場合、その`name`を使用
+              tag={item.category.name} // `category`が存在する場合、その`name`を使用
               date={GetDate}
               title={item.title}
-              description={item.content} // `content`を`description`として渡す
+              description={"ccccccccccccc"} // `content`を`description`として渡す
               image={item.eyecatch.url} // `eyecatch`オブジェクト内の`url`を使用
             />
           );
@@ -97,4 +97,7 @@ interface itemProps {
   eyecatch: {
     url: string;
   };
+  category: {
+    name: string;
+  }
 }

@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 import { client } from "../libs/client";
 import { log } from "console";
 
-export default function Home({ data }: any) {
+export default function Home({ posts }: { posts: itemProps[] }) {
   return (
     <>
       <Header />
@@ -17,8 +17,21 @@ export default function Home({ data }: any) {
           All posts
         </p>
 
-        <div>data</div>
-
+        {posts.map((item) => {
+          const GetDate = dayjs(item.publishedAt).format("DD MMM, YYYY");
+          // ここで`item`から必要なデータを抽出し、Postコンポーネントに渡します。
+          return (
+            <Post
+              key={item.id}
+              // tag={item.?.name} // `category`が存在する場合、その`name`を使用
+              date={GetDate}
+              title={item.title}
+              description={item.content} // `content`を`description`として渡す
+              image={item.eyecatch.url} // `eyecatch`オブジェクト内の`url`を使用
+            />
+          );
+        })}
+        {/* 
         {data?.map((item: itemProps) => {
           let GetDate = dayjs(item.date).format("DD-MMM , YYYY");
 
@@ -32,8 +45,7 @@ export default function Home({ data }: any) {
               image={item.image}
             />
           );
-        })}
-
+        })} */}
         <Pagination />
       </main>
 
@@ -54,7 +66,7 @@ export const getStaticProps = async () => {
   });
   const posts = res.contents;
 
-  console.log(data);
+  console.log(posts);
 
   return {
     props: {
@@ -78,12 +90,11 @@ interface homePageProps {
 }
 
 interface itemProps {
-  date: string;
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  author: string;
-  category: string[];
   id: string;
+  publishedAt: string; // 日付は`publishedAt`を使用
+  title: string;
+  content: string; // 説明には`content`フィールドを使用
+  eyecatch: {
+    url: string;
+  };
 }

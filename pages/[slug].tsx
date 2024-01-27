@@ -4,6 +4,7 @@ import PostHeader from "../components/PostHeader";
 import Image from "next/image";
 import { posts as data } from "../data/post";
 import dayjs from "dayjs";
+import itemProps from "../model/model";
 
 export default function ReadingPage({ post, posts }: ReadingPageProps) {
   return (

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { posts as data } from "../data/post";
 import dayjs from "dayjs";
 import itemProps from "../model/model";
+import { client } from "../libs/client";
 
 export default function ReadingPage({ post, posts }: ReadingPageProps) {
   return (
@@ -149,16 +150,24 @@ interface ReadingPageProps {
   };
 }
 
-export async function getStaticPaths() {
-  const paths = data.map((item) => ({
-    params: { slug: item.title.toLowerCase().replaceAll(" ", "-") },
-  }));
+export const getStaticPaths = async () => {
+  //blogのデータ全部くれ
+  const data = await client.get({ endpoint: "blog" });
+  //アクセスしうるページのパスの入ったオブジェクトの配列としてまとめておく
+  const pathList = data.contents.map((blog: itemProps) => {
+    return {
+      params: {
+        id: blog.id,
+      },
+    };
+  });
 
   return {
-    paths: paths,
+    paths: pathList,
+    //アクセスしうるパス以外のパスに対するアクセスの対処
     fallback: false,
   };
-}
+};
 
 export async function getStaticProps(context: { params: { slug: string } }) {
   const {

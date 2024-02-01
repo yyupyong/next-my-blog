@@ -3,7 +3,7 @@ import Image from "next/image";
 import dayjs from "dayjs";
 
 export default function Post(props: PostProps) {
-  let slug = props.title?.toLowerCase().replaceAll(" ", "-");
+  let slug = props.id;
 
   return (
     <div
@@ -56,6 +56,7 @@ export default function Post(props: PostProps) {
 }
 
 interface PostProps {
+  id: string;
   date: string;
   tag: string;
   title: string;

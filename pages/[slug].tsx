@@ -109,6 +109,7 @@ export default function ReadingPage({ post, posts }: ReadingPageProps) {
 
           return (
             <Post
+              id={item.id}
               key={item.id}
               tag={item.tags[0]}
               date={GetDate.toString()}
@@ -169,18 +170,36 @@ export const getStaticPaths = async () => {
   };
 };
 
-export async function getStaticProps(context: { params: { slug: string } }) {
-  const {
-    params: { slug },
-  } = context;
-
-  const post = data.filter(
-    (item) => item.title.toLowerCase().replaceAll(" ", "-") === slug
-  );
-
-  const posts = data.filter((_, i) => i < 3);
-
+export const getStaticProps = async ({ params }: Params) => {
+  const id = params.id as string;
+  const data = await client.get({ endpoint: "blog", contentId: id });
+  console.log(data)
   return {
-    props: { post: post[0], posts },
+    props: {
+      data: data,
+    },
   };
-}
+};
+
+type Params = {
+  params: {
+    id: string;
+  };
+};
+
+
+// export async function getStaticProps(context: { params: { slug: string } }) {
+//   const {
+//     params: { slug },
+//   } = context;
+
+//   const post = data.filter(
+//     (item) => item.title.toLowerCase().replaceAll(" ", "-") === slug
+//   );
+
+//   const posts = data.filter((_, i) => i < 3);
+
+//   return {
+//     props: { post: post[0], posts },
+//   };
+// }

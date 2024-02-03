@@ -22,6 +22,7 @@ export default function Home({ posts }: { posts: itemProps[] }) {
           // ここで`item`から必要なデータを抽出し、Postコンポーネントに渡します。
           return (
             <Post
+              id={item.id}
               key={item.id}
               tag={item.category.name} // `category`が存在する場合、その`name`を使用
               date={GetDate}
